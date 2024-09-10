@@ -25,14 +25,14 @@ const EmployeeDashboard = () => {
   }
 
   return (
-    <Layout title="דשבורד עובדים">
+    <>
       <h1>דשבורד עובדים</h1>
       {isWorking ? (
         <button onClick={handleClockOut}>סיום משמרת</button>
       ) : (
         <button onClick={handleClockIn}>התחלת משמרת</button>
       )}
-    </Layout>
+      </>
   )
 }
 

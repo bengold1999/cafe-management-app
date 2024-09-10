@@ -1,21 +1,20 @@
-// prisma/schema.prisma
-
 generator client {
   provider = "prisma-client-js"
 }
 
 datasource db {
-    provider = "sqlite"
-     url      = "file:./dev.db"
+  provider = "sqlite"
+  url      = "file:./dev.db"
 }
 
 model Employee {
-  id       Int      @id @default(autoincrement())
-  name     String
-  age      Int
-  email    String   @unique
-  password String
-  shifts   Shift[]
+  id           Int      @id @default(autoincrement())
+  name         String
+  age          Int
+  email        String   @unique
+  password     String   // This could be removed if Clerk manages passwords
+  clerkUserId  String   @unique  // Clerk's user ID
+  shifts       Shift[]
 }
 
 model Shift {

@@ -26,7 +26,8 @@ const AdminDashboard = () => {
   }
 
   return (
-    <Layout title="דשבורד מנהלים">
+    <>
+
       <h1>דשבורד מנהלים</h1>
       <p>עובדים פעילים כרגע: {activeEmployees}</p>
       <button onClick={generateMonthlyReport}>הפקת דוח חודשי</button>
@@ -35,7 +36,8 @@ const AdminDashboard = () => {
           {/* Display monthly report here */}
         </div>
       )}
-    </Layout>
+      </>
+
   )
 }
 

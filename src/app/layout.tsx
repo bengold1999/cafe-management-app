@@ -1,30 +1,14 @@
-import React, { ReactNode } from 'react';
-import Head from 'next/head';
+import { ClerkProvider } from '@clerk/nextjs';
+import './globals.css';
 
-type Props = {
-  children?: ReactNode;
-  title?: string;
-};
-
-const Layout = ({ children, title = 'ניהול עובדים - בית קפה' }: Props) => (
-  <>
-    <Head>
-      <title>{title}</title>
-      <meta charSet="utf-8" />
-      <meta name="viewport" content="initial-scale=1.0, width=device-width" />
-    </Head>
-    <html lang="en">
-      <body>
-        <header>
-          {/* Add header content here */}
-        </header>
-        {children}
-        <footer>
-          {/* Add footer content here */}
-        </footer>
-      </body>
-    </html>
-  </>
-);
-
-export default Layout;
+export default function RootLayout({ children }: { children: React.ReactNode }) {
+  return (
+    <ClerkProvider publishableKey={process.env.NEXT_PUBLIC_CLERK_PUBLISHABLE_KEY}>
+      <html lang="en">
+        <body>
+          {children}
+        </body>
+      </html>
+    </ClerkProvider>
+  );
+}
